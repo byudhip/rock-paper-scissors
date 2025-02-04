@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1 class="headline">Welcome</h1>
-        <div class="description">Let's play 10 rounds of rock-paper-scissors! Click any of the buttons to start</div>
-        <div class="scores">
-            <div class="humanScore">Player: 0</div>
-            <div class="computerScore">Computer: 0</div>
-        </div>
-        <div class="round-result"></div>
-        <div class="buttons">
-            <button onclick="playRound('rock',getComputerChoice())">Rock</button>
-            <button onclick="playRound('paper',getComputerChoice())">Paper</button>
-            <button onclick="playRound('scissors',getComputerChoice())">Scissors</button>
-        </div>
+      <h1 class="headline">Welcome</h1>
+      <div class="description">
+        Let's play 3 rounds of rock-paper-scissors! Click any of the buttons to
+        start.
+      </div>
+      <div class="scores">
+        <div class="humanScore">Player: 0</div>
+        <div class="computerScore">Computer: 0</div>
+      </div>
+      <div class="round-result">...Waiting for input...</div>
+      <div class="buttons">
+        <button onclick="playRound('rock')">Rock</button>
+        <button onclick="playRound('paper')">Paper</button>
+        <button onclick="playRound('scissors')">Scissors</button>
+      </div>
     </div>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
