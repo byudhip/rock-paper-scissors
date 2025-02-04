@@ -69,30 +69,30 @@ const playRound = (humanChoice) => {
 
 
 const gameFinished = () => {
-  buttons.innerHTML = ""; //Empty out the button container to be reused later
+  buttons.innerHTML = ""; // Empty out the buttons container to be reused later
 
-  humanScoreText.textContent = "‎ "; //to maintain consistent positioning, otherwise elements will move around/get resized
+  humanScoreText.textContent = "‎ "; // Used invisible character to maintain consistent positioning, otherwise elements will move around/get resized
   computerScoreText.textContent = "‎ ";
   description.textContent = "‎ ";
 
   headline.textContent = `${
     humanScore > computerScore
-      ? "Congrats!" // win
+      ? "Congrats!" 
       : humanScore < computerScore
-      ? "Too bad!" // lose
-      : "GGWP" // draw
+      ? "Too bad!" 
+      : "GGWP" 
   }`;
   roundResultText.textContent = `${humanScore}-${computerScore}, ${
     humanScore > computerScore
-      ? "Player" //win
+      ? "Player" 
       : humanScore < computerScore
-      ? "Computer" //lose
-      : "" //draw
+      ? "Computer" 
+      : "" 
   } ${humanScore === computerScore ? "It's a draw!" : "wins the game!"}`; 
 
   resetButton = document.createElement("button");
   resetButton.textContent = "Reset";
-  resetButton.addEventListener("click", resetGame);  // note to self, always add function as a value, not to call them here (in other words, without parentheses)
+  resetButton.addEventListener("click", resetGame); 
   buttons.appendChild(resetButton);
 };
 
