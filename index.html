@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="headline">Welcome</h1>
+        <div class="description">Let's play 10 rounds of rock-paper-scissors! Click any of the buttons to start</div>
+        <div class="scores">
+            <div class="humanScore">Player: 0</div>
+            <div class="computerScore">Computer: 0</div>
+        </div>
+        <div class="round-result"></div>
+        <div class="buttons">
+            <button onclick="playRound('rock',getComputerChoice())">Rock</button>
+            <button onclick="playRound('paper',getComputerChoice())">Paper</button>
+            <button onclick="playRound('scissors',getComputerChoice())">Scissors</button>
+        </div>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>
