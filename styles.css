@@ -9,23 +9,18 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  text-align: center;
   gap: 20px;
   padding: 30px;
   border: 2px solid black;
   border-radius: 15px;
-}
-
-h1 {
-  text-align: center;
+  width: 30vw;
+  height: 30vh;
 }
 
 .scores {
   display: flex;
   justify-content: space-evenly;
-}
-
-.buttons {
-  text-align: center;
 }
 
 button {
@@ -34,32 +29,11 @@ button {
   border: 2px solid black;
   border-radius: 5px;
   background-color: black;
-  color: white
+  color: white;
 }
 
 button:hover {
   background-color: white;
   color: black;
 }
-/* body {
-    background-color: black;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
-@keyframes neon-colors {
-    0%   { color: #ff00ff; }  
-    25%  { color: #00ffff; }  
-    50%  { color: #00ff00; }  
-    75%  { color: #ff0000; }  
-    100% { color: #ff00ff; }  
-}
-
-  h1 {
-    animation: neon-colors 4s infinite linear;
-    font-size: 80px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  } */
