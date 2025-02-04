@@ -60,7 +60,8 @@ const playRound = (humanChoice) => {
     humanScoreText.textContent = `Player: ${humanScore}`;
     roundResultText.textContent = `You chose ${humanChoice} & computer chose ${computerChoice}, you win!`;
     if (roundCount === 3) {
-      gameFinished();
+      buttons.innerHTML = "<p>Wrapping up the game...</p>";
+      setTimeout(gameFinished, 2000);
       return;
     }
   } else if (
@@ -73,14 +74,16 @@ const playRound = (humanChoice) => {
     computerScoreText.textContent = `Computer: ${computerScore}`;
     roundResultText.textContent = `You chose ${humanChoice} & computer chose ${computerChoice}, you lose!`;
     if (roundCount === 3) {
-      gameFinished();
+      buttons.innerHTML = "<p>Wrapping up the game...</p>";
+      setTimeout(gameFinished, 2000);
       return;
     }
   } else {
     roundCount++;
     roundResultText.textContent = `You chose ${humanChoice} & computer chose ${computerChoice}, it's a draw!`;
     if (roundCount === 3) {
-      gameFinished();
+      buttons.innerHTML = "<p>Wrapping up the game...</p>";
+      setTimeout(gameFinished, 2000);
       return;
     }
   }
