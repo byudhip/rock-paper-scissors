@@ -36,9 +36,9 @@ const playRound = (humanChoice) => {
     roundCount++;
     humanScoreText.textContent = `Player: ${humanScore}`;
     roundResultText.textContent = `You chose ${humanChoice} & computer chose ${computerChoice}, you win!`;
-    if (roundCount === 3) {
-      buttons.innerHTML = "<p>Wrapping up the game...</p>";
-      setTimeout(gameFinished, 2000);
+    if (roundCount === 3) {                                           
+      buttons.innerHTML = "<p>Wrapping up the game...</p>"; // to disable buttons and smoothes out the transition to gameFinished
+      setTimeout(gameFinished, 2000); // added 2 seconds wait so player can see their last round result first
       return;
     }
   } else if (
@@ -69,30 +69,30 @@ const playRound = (humanChoice) => {
 
 
 const gameFinished = () => {
-  buttons.innerHTML = "";
+  buttons.innerHTML = ""; //Empty out the button container to be reused later
 
-  humanScoreText.textContent = "‎ ";
+  humanScoreText.textContent = "‎ "; //to maintain consistent positioning, otherwise elements will move around/get resized
   computerScoreText.textContent = "‎ ";
   description.textContent = "‎ ";
 
   headline.textContent = `${
     humanScore > computerScore
-      ? "Congrats!"
+      ? "Congrats!" // win
       : humanScore < computerScore
-      ? "Too bad!"
-      : "GGWP"
+      ? "Too bad!" // lose
+      : "GGWP" // draw
   }`;
   roundResultText.textContent = `${humanScore}-${computerScore}, ${
     humanScore > computerScore
-      ? "Player"
+      ? "Player" //win
       : humanScore < computerScore
-      ? "Computer"
-      : ""
-  } ${humanScore === computerScore ? "It's a draw!" : "wins the game!"}`;
+      ? "Computer" //lose
+      : "" //draw
+  } ${humanScore === computerScore ? "It's a draw!" : "wins the game!"}`; 
 
   resetButton = document.createElement("button");
   resetButton.textContent = "Reset";
-  resetButton.addEventListener("click", resetGame); // Make sure this triggers resetGame
+  resetButton.addEventListener("click", resetGame);  // note to self, always add function as a value, not to call them here (in other words, without parentheses)
   buttons.appendChild(resetButton);
 };
 
