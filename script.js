@@ -1,26 +1,3 @@
-// create variable for h1
-// create variable for description
-// create variable for score elements in html
-// create variable for round result element
-// create variable for buttons
-// declare reset button
-// Create humanScore & computerScore variables, set to 0
-
-// getComputerChoice
-// Create variable comChoice, set as Math floor Math random from 1-3
-// if 1 return rock, 2 return paper, 3 return scissors
-
-// playRound
-// set humanChoice as the parameter
-// end the game after three rounds
-// if human paper computer rock humanscore+1, set roundresult to you win message
-// if human rock computer scissor humanscore+1, set roundresult to you win message
-// if human scissor computer paper humanscore+1, set roundresult to you win message
-// if computer paper human rock computerscore+1, set roundresult to computer win message
-// if computer rock human scissor computerscore+1, set roundresult to computer win message
-// if computer scissor human paper computerscore+1, set roundresult to computer win message
-// if choice is the same, set roundresult to it's a draw
-
 const headline = document.querySelector(".headline");
 const description = document.querySelector(".description");
 const humanScoreText = document.querySelector(".humanScore");
@@ -89,16 +66,7 @@ const playRound = (humanChoice) => {
   }
 };
 
-// gameFinished
-// remove the play buttons
-// set the humanscore, computerscore, and description to an invisible character to maintain positioning
-// update headline based on winner, if any
-// update round-result based on winner, if any
 
-// resetbutton
-// set text to Reset
-// run resetGame onclick
-// append resetButton to .buttons
 
 const gameFinished = () => {
   buttons.innerHTML = "";
@@ -127,15 +95,6 @@ const gameFinished = () => {
   resetButton.addEventListener("click", resetGame); // Make sure this triggers resetGame
   buttons.appendChild(resetButton);
 };
-
-// resetGame
-// reset scores to 0
-// reset round count to 0
-// restore original headline
-// restore original description
-// restore original score text
-// restore original round-result text
-// restore play buttons
 
 const resetGame = () => {
   humanScore = 0;
