@@ -143,7 +143,7 @@ const resetGame = () => {
   roundCount = 0;
   headline.textContent = "Welcome";
   description.textContent =
-    "Let's play rock-paper-scissors! Click any of the buttons to start";
+    "Let's play 3 rounds of rock-paper-scissors! Click any of the buttons to start.";
   humanScoreText.textContent = "Player: 0";
   computerScoreText.textContent = "Computer: 0";
   roundResultText.textContent = "...Waiting for input...";
