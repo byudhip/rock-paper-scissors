@@ -1,9 +1,13 @@
 const headline = document.querySelector(".headline");
 const description = document.querySelector(".description");
-const humanScoreText = document.querySelector(".humanScore");
-const computerScoreText = document.querySelector(".computerScore");
+const lastMsg = document.querySelector(".after-third");
+const humanScoreText = document.querySelector(".human-score");
+const computerScoreText = document.querySelector(".computer-score");
 const roundResultText = document.querySelector(".round-result");
 const buttons = document.querySelector(".buttons");
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
 let resetButton;
 
 let roundCount = 0;
@@ -26,7 +30,11 @@ const getComputerChoice = () => {
 };
 
 const playRound = (humanChoice) => {
+  const humanChoiceEmoji =
+    humanChoice === "rock" ? "🗿" : humanChoice === "paper" ? "📜" : "✂️";
   const computerChoice = getComputerChoice();
+  const computerChoiceEmoji =
+    computerChoice === "rock" ? "🗿" : computerChoice === "paper" ? "📜" : "✂️";
   if (
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "rock" && computerChoice === "scissors") ||
@@ -35,8 +43,8 @@ const playRound = (humanChoice) => {
     humanScore++;
     roundCount++;
     humanScoreText.textContent = `Player: ${humanScore}`;
-    roundResultText.textContent = `You chose ${humanChoice} & computer chose ${computerChoice}, you win!`;
-    if (roundCount === 3) {                                           
+    roundResultText.textContent = `You chose ${humanChoiceEmoji} & computer chose ${computerChoiceEmoji}, you win!`;
+    if (roundCount === 3) {
       buttons.innerHTML = "<p>Wrapping up the game...</p>"; // to disable buttons and smoothes out the transition to gameFinished
       setTimeout(gameFinished, 2000); // added 2 seconds wait so player can see their last round result first
       return;
@@ -49,7 +57,7 @@ const playRound = (humanChoice) => {
     computerScore++;
     roundCount++;
     computerScoreText.textContent = `Computer: ${computerScore}`;
-    roundResultText.textContent = `You chose ${humanChoice} & computer chose ${computerChoice}, you lose!`;
+    roundResultText.textContent = `You chose ${humanChoiceEmoji} & computer chose ${computerChoiceEmoji}, you lose!`;
     if (roundCount === 3) {
       buttons.innerHTML = "<p>Wrapping up the game...</p>";
       setTimeout(gameFinished, 2000);
@@ -57,7 +65,7 @@ const playRound = (humanChoice) => {
     }
   } else {
     roundCount++;
-    roundResultText.textContent = `You chose ${humanChoice} & computer chose ${computerChoice}, it's a draw!`;
+    roundResultText.textContent = `You chose ${humanChoiceEmoji} & computer chose ${computerChoiceEmoji}, it's a draw!`;
     if (roundCount === 3) {
       buttons.innerHTML = "<p>Wrapping up the game...</p>";
       setTimeout(gameFinished, 2000);
@@ -66,10 +74,26 @@ const playRound = (humanChoice) => {
   }
 };
 
-
+buttons.addEventListener("click", (event) => {
+  if (event.target.classList.contains("rock")) {
+    playRound("rock");
+  } else if (event.target.classList.contains("paper")) {
+    playRound("paper");
+  } else if (event.target.classList.contains("scissors")) {
+    playRound("scissors");
+  }
+});
 
 const gameFinished = () => {
   buttons.innerHTML = ""; // Empty out the buttons container to be reused later
+
+  lastMsg.textContent = `${humanScore}-${computerScore}, ${
+    humanScore > computerScore
+      ? "Player"
+      : humanScore < computerScore
+      ? "Computer"
+      : ""
+  } ${humanScore === computerScore ? "It's a draw!" : "wins the game!"}`;
 
   humanScoreText.textContent = "‎ "; // Used invisible character to maintain consistent positioning, otherwise elements will move around/get resized
   computerScoreText.textContent = "‎ ";
@@ -77,22 +101,16 @@ const gameFinished = () => {
 
   headline.textContent = `${
     humanScore > computerScore
-      ? "Congrats!" 
+      ? "Congrats!"
       : humanScore < computerScore
-      ? "Too bad!" 
-      : "GGWP" 
+      ? "Too bad!"
+      : "GGWP"
   }`;
-  roundResultText.textContent = `${humanScore}-${computerScore}, ${
-    humanScore > computerScore
-      ? "Player" 
-      : humanScore < computerScore
-      ? "Computer" 
-      : "" 
-  } ${humanScore === computerScore ? "It's a draw!" : "wins the game!"}`; 
+  roundResultText.textContent = "‎ ";
 
   resetButton = document.createElement("button");
   resetButton.textContent = "Reset";
-  resetButton.addEventListener("click", resetGame); 
+  resetButton.addEventListener("click", resetGame);
   buttons.appendChild(resetButton);
 };
 
@@ -100,14 +118,17 @@ const resetGame = () => {
   humanScore = 0;
   computerScore = 0;
   roundCount = 0;
+
   headline.textContent = "Welcome";
   description.textContent =
     "Let's play 3 rounds of rock-paper-scissors! Click any of the buttons to start.";
   humanScoreText.textContent = "Player: 0";
   computerScoreText.textContent = "Computer: 0";
+  lastMsg.textContent = "";
   roundResultText.textContent = "...Waiting for input...";
+
   buttons.innerHTML = `
-        <button onclick="playRound('rock')">Rock</button>
-        <button onclick="playRound('paper')">Paper</button>
-        <button onclick="playRound('scissors')">Scissors</button>`;
+        <button class="rock">🗿</button>
+        <button class="paper">📜</button>
+        <button class="scissors">✂️</button>`;
 };
