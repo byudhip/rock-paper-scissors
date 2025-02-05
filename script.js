@@ -79,7 +79,7 @@ buttons.addEventListener("click", (event) => {
     playRound("rock");
   } else if (event.target.classList.contains("paper")) {
     playRound("paper");
-  } else if (event.target.classList.contains("scissors")) {
+  } else {
     playRound("scissors");
   }
 });
