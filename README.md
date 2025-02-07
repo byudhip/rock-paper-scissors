@@ -1,3 +1,5 @@
 Rock-paper-scissors task from The Odin Project
 
 This game features emoji based options and texts for better UX. Hovering on any button will highlight that button. When you click any option, the round result text will show you the emoji of your option, and also of the computer's choice. The scores will update accordingly based on the round result. After either side reached a score of 5, the game will end after 2 seconds, showing the final score of the game. This is a deliberate choice to give players enough time to see the final round result. Then, a reset button featured at the bottom of the container, to revert all the elements back to their original state.
+
+The last 2 commits of the main files are kind of puzzling, but that's because I thought the merge with a temporary-branch didn't happen. It turns out the merge just delayed. I will keep this in mind for future projects.
