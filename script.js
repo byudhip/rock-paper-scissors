@@ -10,7 +10,7 @@ const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 let resetButton;
 
-// let roundCount = 0;
+// let roundCount = 0; unused
 let humanScore = 0;
 let computerScore = 0;
 
